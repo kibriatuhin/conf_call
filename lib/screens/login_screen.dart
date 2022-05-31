@@ -28,8 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: EdgeInsets.symmetric(vertical: 30),
               child: Image.asset("assets/images/onboarding.jpg")),
           CustomButton(text: "Google Sign in",onPressed: ()async{
-            AsyncSnapshot<bool> res = _authMethods.signInWithGoogle(context) as AsyncSnapshot<bool>  ;
-            if(res.data!){
+            bool res =await _authMethods.signInWithGoogle(context) as bool  ;
+            if(res){
               Navigator.pushNamed(context, HomeScreen.routeName);
             }
           },),
