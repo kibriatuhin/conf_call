@@ -1,3 +1,4 @@
+import 'package:conf_call/resources/auth_method.dart';
 import 'package:conf_call/screens/home_screen.dart';
 import 'package:conf_call/screens/login_screen.dart';
 import 'package:conf_call/utils/colors.dart';
@@ -26,7 +27,19 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName : (context) => LoginScreen(),
         HomeScreen.routeName : (context) => HomeScreen()
       },
-      home:  LoginScreen(),
+      home:  StreamBuilder(
+          stream: AuthMethods().authChanges,
+          builder:(context,snapshop){
+            if(snapshop.connectionState == ConnectionState.waiting){
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if(snapshop.hasData){
+              return const HomeScreen();
+            }
+            return  LoginScreen();
+          }),
     );
   }
 }
