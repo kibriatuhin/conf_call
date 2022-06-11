@@ -23,6 +23,7 @@ dependencies:
   jitsi_meet: ^4.0.0
 
 
+
   cupertino_icons: ^1.0.2
 
 
@@ -69,3 +70,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+jitsi_meet:
+  git:
+    url: https://github.com/dispersik/jitsi_meet_fork
+    ref: master
