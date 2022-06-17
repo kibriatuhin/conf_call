@@ -12,6 +12,15 @@ class AuthMethods {
 
   User get user=> _auth.currentUser!;
 
+  void signOut()async{
+    try{
+      _auth.signOut();
+
+    }catch(e){
+      print(e);
+    }
+  }
+
   Future<bool> signInWithGoogle(BuildContext context) async {
     bool res = false;
     try {

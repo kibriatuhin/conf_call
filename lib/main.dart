@@ -1,6 +1,7 @@
 import 'package:conf_call/resources/auth_method.dart';
 import 'package:conf_call/screens/home_screen.dart';
 import 'package:conf_call/screens/login_screen.dart';
+import 'package:conf_call/screens/video_call_screen.dart';
 import 'package:conf_call/utils/colors.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         LoginScreen.routeName : (context) => LoginScreen(),
-        HomeScreen.routeName : (context) => HomeScreen()
+        HomeScreen.routeName : (context) => HomeScreen(),
+        VideoCallScreen.routeName : (context) => VideoCallScreen(),
       },
       home:  StreamBuilder(
           stream: AuthMethods().authChanges,

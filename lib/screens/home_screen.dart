@@ -1,6 +1,9 @@
+import 'package:conf_call/resources/auth_method.dart';
+import 'package:conf_call/resources/firestore_method.dart';
 import 'package:conf_call/screens/history_meeting_screen.dart';
 import 'package:conf_call/screens/meeting_screens.dart';
 import 'package:conf_call/utils/colors.dart';
+import 'package:conf_call/widgets/custom_button.dart';
 import 'package:conf_call/widgets/home_meeting_button.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  //final AuthMethods _authMethods = AuthMethods();
   int _page = 0;
   _onPageChange(int page) {
     setState(() {
@@ -20,11 +24,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+
   List<Widget> pages = [
      MeetingScreens(),
     const HistoryMeetingScreen(),
     const Text("contact"),
-    const Text("setting")
+    CustomButton(text: "Logout", onPressed: ()=> AuthMethods().signOut())
   ];
 
   @override
